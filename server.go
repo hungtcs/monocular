@@ -18,7 +18,7 @@ var sse = NewSSE[*tail.Line]()
 
 func startServer(listenAddress, filepath string) (err error) {
 	t, err := tail.TailFile(filepath, tail.Config{Follow: true, ReOpen: true, Location: &tail.SeekInfo{
-		Whence: io.SeekStart,
+		Whence: io.SeekEnd,
 	}})
 	if err != nil {
 		return err
